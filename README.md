@@ -6,7 +6,7 @@ https://react-native-camera.github.io/react-native-camera/docs/installation
 
 ※ QR scan을 위해서는 react-native-camera에서 MLKit 추가 설정을 해줘야 하므로, 꼼꼼히 읽을 것
 
-
+<br/>
 
 ### 기본 사용법
 
@@ -25,7 +25,9 @@ const BarcodeDetected = ({barcodes}) => {
 
 
 
-###### onGoogleVisionBarcodeDetected가 뱉는 전체 데이터
+<br/>
+
+※ onGoogleVisionBarcodeDetected가 뱉는 전체 데이터
 
 ```json
 [
@@ -43,7 +45,7 @@ const BarcodeDetected = ({barcodes}) => {
 ]
 ```
 
-
+<br/>
 
 ### 기타
 
