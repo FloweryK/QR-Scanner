@@ -87,7 +87,8 @@ const BarcodeDetected = ({barcodes}) => {
 
 ### 이슈
 
-- style이 제대로 적용되지 않는 문제가 있다. width, height를 사용할 때 정해진 height를 넘어가는 경우가 발생하며, 다른 컴포넌트들이 실제 height를 인식하지 못하고 preview와 겹치는 문제가 있다.
+- `RNCamera` 컴포넌트가 container에 제대로 들어가지 않고 튀어나오는 문제가 있다.
+  (관련 이슈: https://github.com/react-native-camera/react-native-camera/issues/1902)
 
 
 
