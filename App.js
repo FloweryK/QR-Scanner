@@ -1,37 +1,24 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import QRCodeGenerator from './components/QRCodeGenerator';
-import BarcodeScanner from './components/BarcodeScanner';
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HomeScreen from './components/screens/HomeScreen';
+import ScanScreen from './components/screens/ScanScreen';
+import GenerateScreen from './components/screens/GenerateScreen';
 
 const App = () => {
-  // camera reference
-  let camera;
-
-  // for QR scanner
-  const [qrList, setQrList] = useState([]);
-
-  const BarcodeDetected = ({barcodes}) => {
-    const newQrList = barcodes.map(barcode => barcode.data);
-    setQrList(newQrList);
-  };
+  // Navigator stack
+  const Stack = createNativeStackNavigator();
 
   return (
-    <View>
-      <BarcodeScanner BarcodeDetected={BarcodeDetected} style={styles.image} />
-      <QRCodeGenerator value="hello there?" />
-      <Text>QR Detected:</Text>
-      {qrList.map(qr => (
-        <Text>{qr}</Text>
-      ))}
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Scan" component={ScanScreen} />
+        <Stack.Screen name="Generate" component={GenerateScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  image: {
-    width: 200,
-    height: 600,
-  },
-});
 
 export default App;
