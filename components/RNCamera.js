@@ -1,7 +1,7 @@
 import React from 'react';
 import {RNCamera} from 'react-native-camera';
 
-const Scanner = props => {
+const BarcodeScanner = props => {
   const {BarcodeDetected, style} = props;
 
   let camera;
@@ -17,4 +17,4 @@ const Scanner = props => {
   );
 };
 
-export default Scanner;
+export default BarcodeScanner;
