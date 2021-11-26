@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import BarcodeScanner from './components/RNCamera';
+import QRCodeGenerator from './components/QRCodeGenerator';
+import BarcodeScanner from './components/BarcodeScanner';
 
 const App = () => {
   // camera reference
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <View>
       <BarcodeScanner BarcodeDetected={BarcodeDetected} style={styles.image} />
+      <QRCodeGenerator value="hello there?" />
       <Text>QR Detected:</Text>
       {qrList.map(qr => (
         <Text>{qr}</Text>
