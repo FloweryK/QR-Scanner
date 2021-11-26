@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {RNCamera} from 'react-native-camera';
+import BarcodeScanner from './components/RNCamera';
 
 const App = () => {
   // camera reference
@@ -16,14 +16,11 @@ const App = () => {
 
   return (
     <View>
-      <RNCamera
-        ref={ref => (camera = ref)}
-        style={styles.image}
-        type={RNCamera.Constants.Type.back}
-        captureAudio={false}
-        onGoogleVisionBarcodesDetected={BarcodeDetected}
-      />
-      <Text>QR Detected: {qrList}</Text>
+      <BarcodeScanner BarcodeDetected={BarcodeDetected} style={styles.image} />
+      <Text>QR Detected:</Text>
+      {qrList.map(qr => (
+        <Text>{qr}</Text>
+      ))}
     </View>
   );
 };
