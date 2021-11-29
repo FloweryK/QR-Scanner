@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import BarcodeScanner from '../utils/BarcodeScanner';
+import QRScanner from '../utils/scanners/react-native-camera';
 
 const ScanScreen = () => {
   // camera reference
@@ -9,14 +9,14 @@ const ScanScreen = () => {
   // detected QR code list
   const [qrList, setQrList] = useState([]);
 
-  const BarcodeDetected = ({barcodes}) => {
+  const QRDetected = ({barcodes}) => {
     const newQrList = barcodes.map(barcode => barcode.data);
     setQrList(newQrList);
   };
 
   return (
     <View>
-      <BarcodeScanner BarcodeDetected={BarcodeDetected} style={styles.image} />
+      <QRScanner BarcodeDetected={QRDetected} style={styles.image} />
       <Text style={styles.text}>QR Detected:</Text>
       {qrList.map(qr => (
         <Text style={styles.text}>{qr}</Text>

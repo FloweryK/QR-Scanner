@@ -1,8 +1,8 @@
 import React from 'react';
 import QRCode from 'react-native-qrcode-svg';
 
-const QRCodeGenerator = props => {
+const QRGenerator = props => {
   return <QRCode value={props.value} />;
 };
 
-export default QRCodeGenerator;
+export default QRGenerator;

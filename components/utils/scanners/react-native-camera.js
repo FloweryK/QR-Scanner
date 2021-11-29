@@ -1,8 +1,8 @@
 import React from 'react';
 import {RNCamera} from 'react-native-camera';
 
-const BarcodeScanner = props => {
-  const {BarcodeDetected, style} = props;
+const QRScanner = props => {
+  const {QRDetected, style} = props;
 
   let camera;
 
@@ -11,10 +11,10 @@ const BarcodeScanner = props => {
       ref={ref => (camera = ref)}
       type={RNCamera.Constants.Type.back}
       captureAudio={false}
-      onGoogleVisionBarcodesDetected={BarcodeDetected}
+      onGoogleVisionBarcodesDetected={QRDetected}
       style={style}
     />
   );
 };
 
-export default BarcodeScanner;
+export default QRScanner;

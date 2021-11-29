@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
-import QRCodeGenerator from '../utils/QRCodeGenerator';
+import QRGenerator from '../utils/generators/react-qr-code';
 
 const GenerateScreen = () => {
   // info for QR code
@@ -12,19 +12,20 @@ const GenerateScreen = () => {
     if (text.length > 0) {
       setQrValue(text);
     } else {
-      setQrValue('ㅠㅅㅠ QR로 만들 텍스트가 없어요');
+      setQrValue('QR로 만들 텍스트가 없어요');
     }
     setInputValue(text);
   };
 
   return (
     <View>
-      <QRCodeGenerator value={qrValue} />
+      <QRGenerator value={qrValue} />
       <TextInput
         value={inputValue}
         onChange={onChange}
         style={styles.textInput}
       />
+      <TextInput value={tmpText} />
     </View>
   );
 };
