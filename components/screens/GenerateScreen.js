@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
-import QRGenerator from '../utils/generators/react-qr-code';
+import QRGenerator from '../utils/generators/react-native-qrcode-svg';
 
 const GenerateScreen = () => {
   // info for QR code
@@ -18,19 +18,27 @@ const GenerateScreen = () => {
   };
 
   return (
-    <View>
-      <QRGenerator value={qrValue} />
+    <View style={styles.container}>
+      <View style={styles.qrcode}>
+        <QRGenerator value={qrValue} />
+      </View>
       <TextInput
         value={inputValue}
         onChange={onChange}
         style={styles.textInput}
       />
-      <TextInput value={tmpText} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  qrcode: {
+    padding: 15,
+  },
   textInput: {
     color: 'black',
   },
